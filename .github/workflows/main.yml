@@ -33,12 +33,9 @@ jobs:
 
   build:
     needs: [setup]
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: test
       - uses: actions/checkout@v3
-      - run: pnpm run test
+      - name: test
+        run: pnpm run test
 
