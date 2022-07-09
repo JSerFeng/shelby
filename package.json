@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "esno scripts/test.ts"
+    "test": "esno scripts/test.ts",
+		"build": "esno scripts/build.ts"
   },
   "repository": {
     "type": "git",

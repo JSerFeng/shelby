@@ -3,5 +3,5 @@ import shelljs from 'shelljs';
 
 eachPackage((dir) => {
   shelljs.cd(dir);
-  shelljs.exec('npm run test');
+  shelljs.exec('npm run build');
 });
