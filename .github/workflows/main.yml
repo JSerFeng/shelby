@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  setup:
+  test:
     runs-on: ubuntu-latest
     
     steps:
@@ -26,16 +26,30 @@ jobs:
           node-version: '14.x'
           
       - name: install pnpm
-        run: ls -a | npm i pnpm -g
+        run: npm i pnpm -g
       
       - name: Install Dependencies
         run: pnpm install
+        
+      - name: test
+        run: pnpm run test
 
   build:
-    needs: [setup]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: test
-        run: pnpm run test
+      - uses: actions/setup-node@v3.3.0
+        name: setup
+        with: 
+          node-version: '14.x'
+        
+      - name: install pnpm
+        run: npm i pnpm -g
+      
+      - name: Install Dependencies
+        run: pnpm install
+        
+      - name: build
+        run: pnpm run build
+       
 
